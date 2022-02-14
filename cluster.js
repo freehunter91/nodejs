@@ -18,6 +18,9 @@ if (cluster.isMaster) {
         res.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8' });
         res.write('<h1>Hello Node!</h1>');
         res.end('<p>Hello Cluster!</p>');
+        setTimeout(() => {
+            process.exit(1);
+        }, 1000);
     }).listen(8086);
 
     console.log(`${process.pid}번 워커 실행`);
